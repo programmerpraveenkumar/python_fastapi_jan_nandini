@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
-from app.api.routes import router
+from apis.HtmlRouter import router
 
 app = FastAPI()
 
