@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Simulation Test - CodingInterview.in</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #f9fafb;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+        
+        .page-section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+        
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+        
+        .instructions-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .instructions-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #4a5568;
+            font-size: 16px;
+        }
+        
+        .instructions-list li:before {
+            content: "•";
+            position: absolute;
+            left: 10px;
+            color: #2563eb;
+            font-size: 20px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            background: #1d4ed8;
+        }
+        
+        .progress-bar {
+            background: #e5e7eb;
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: #2563eb;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        
+        .progress-text {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+        
+        .question-section {
+            display: none;
+        }
+        
+        .question-section.active {
+            display: block;
+        }
+        
+        .question-text {
+            font-size: 20px;
+            color: #1a202c;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .question-helper {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .options-container {
+            margin: 25px 0;
+        }
+        
+        .option {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 16px;
+        }
+        
+        .option:hover {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+        
+        .option.selected {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+        
+        .encouragement {
+            background: #f0f9ff;
+            border-left: 4px solid #2563eb;
+            padding: 16px 20px;
+            margin: 25px 0;
+            font-size: 15px;
+            color: #1e40af;
+        }
+        
+        .completion-section {
+            text-align: center;
+            display: none;
+        }
+        
+        .completion-section.active {
+            display: block;
+        }
+        
+        .completion-icon {
+            width: 60px;
+            height: 60px;
+            background: #10b981;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+        }
+        
+        .completion-list {
+            text-align: left;
+            max-width: 500px;
+            margin: 30px auto;
+            list-style: none;
+        }
+        
+        .completion-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #4a5568;
+            font-size: 16px;
+        }
+        
+        .completion-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 5px;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .loading-section {
+            text-align: center;
+            display: none;
+        }
+        
+        .loading-section.active {
+            display: block;
+        }
+        
+        .spinner {
+            border: 4px solid #e5e7eb;
+            border-top: 4px solid #2563eb;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+        
+        .loading-subtext {
+            font-size: 14px;
+            color: #6b7280;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 30px;
+            gap: 15px;
+        }
+        
+        .btn-next {
+            background: #2563eb;
+            color: white;
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .btn-next:hover:not(:disabled) {
+            background: #1d4ed8;
+        }
+        
+        .btn-next:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+        }
+        
+        .intro-note {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 16px 20px;
+            margin-top: 25px;
+            font-size: 15px;
+            color: #92400e;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">CodingInterview.in</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Introduction Section -->
+        <div id="intro-section" class="page-section">
+            <h1>Your Interview Simulation Test</h1>
+            <p class="subtitle">This test simulates a real technical interview. Answer questions the way you would in front of an interviewer. There's no pass or fail—just honest feedback on your readiness.</p>
+            
+            <div style="margin-top: 40px;">
+                <h2>Before You Begin</h2>
+                <p style="color: #4a5568; margin-bottom: 15px;">This test works differently from exams you've taken before. Here's what you need to know:</p>
+                
+                <ul class="instructions-list">
+                    <li>Questions are based on real interview patterns for your profile</li>
+                    <li>Answer honestly—your report quality depends on it</li>
+                    <li>There is no negative marking</li>
+                    <li>Choose one option per question</li>
+                    <li>Do not refresh or go back during the test</li>
+                    <li>The test will take about 10 minutes</li>
+                </ul>
+                
+                <div class="intro-note">
+                    Take a moment. When you're ready, click Start Test.
+                </div>
+                
+                <button class="cta-button" onclick="startTest()">Start Test</button>
+            </div>
+        </div>
+
+        <!-- Test Section -->
+        <div id="test-section" class="page-section" style="display: none;">
+            <div class="progress-text" id="progress-text">Question 1 of 15</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 6.67%;"></div>
+            </div>
+            
+            <!-- Question 1 -->
+            <div class="question-section active" id="question-1">
+                <div class="question-text">What is your approach when you encounter a bug you cannot solve immediately?</div>
+                <div class="question-helper">Choose the option you would say in an interview.</div>
+                
+                <div class="options-container">
+                    <div class="option" onclick="selectOption(this, 1, 'a')">
+                        I try to debug it systematically by isolating the problem and checking logs
+                    </div>
+                    <div class="option" onclick="selectOption(this, 1, 'b')">
+                        I ask a senior developer for help immediately
+                    </div>
+                    <div class="option" onclick="selectOption(this, 1, 'c')">
+                        I search for similar issues online and adapt solutions
+                    </div>
+                    <div class="option" onclick="selectOption(this, 1, 'd')">
+                        I take a break and come back to it with a fresh perspective
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-section" id="question-2">
+                <div class="question-text">How do you prioritize tasks when working on multiple features?</div>
+                <div class="question-helper">Pick the answer closest to what you actually know.</div>
+                
+                <div class="options-container">
+                    <div class="option" onclick="selectOption(this, 2, 'a')">
+                        I work on the easiest tasks first to build momentum
+                    </div>
+                    <div class="option" onclick="selectOption(this, 2, 'b')">
+                        I prioritize based on business impact and deadlines
+                    </div>
+                    <div class="option" onclick="selectOption(this, 2, 'c')">
+                        I ask my manager to set priorities for me
+                    </div>
+                    <div class="option" onclick="selectOption(this, 2, 'd')">
+                        I work on what interests me the most
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-section" id="question-3">
+                <div class="question-text">What is the time complexity of searching in a balanced binary search tree?</div>
+                <div class="question-helper">Select the response you would give to an interviewer.</div>
+                
+                <div class="options-container">
+                    <div class="option" onclick="selectOption(this, 3, 'a')">
+                        O(n)
+                    </div>
+                    <div class="option" onclick="selectOption(this, 3, 'b')">
+                        O(log n)
+                    </div>
+                    <div class="option" onclick="selectOption(this, 3, 'c')">
+                        O(n log n)
+                    </div>
+                    <div class="option" onclick="selectOption(this, 3, 'd')">
+                        O(1)
+                    </div>
+                </div>
+                
+                <div class="encouragement">
+                    Good start. Keep your answers honest.
+                </div>
+            </div>
+
+            <!-- Question 8 (mid-point example) -->
+            <div class="question-section" id="question-8">
+                <div class="question-text">Describe your experience with version control systems like Git.</div>
+                <div class="question-helper">Choose your honest answer, even if you're not completely sure.</div>
+                
+                <div class="options-container">
+                    <div class="option" onclick="selectOption(this, 8, 'a')">
+                        I use basic commands like commit, push, and pull regularly
+                    </div>
+                    <div class="option" onclick="selectOption(this, 8, 'b')">
+                        I'm comfortable with branching, merging, and resolving conflicts
+                    </div>
+                    <div class="option" onclick="selectOption(this, 8, 'c')">
+                        I have heard of Git but haven't used it much
+                    </div>
+                    <div class="option" onclick="selectOption(this, 8, 'd')">
+                        I manage complex workflows including rebasing and cherry-picking
+                    </div>
+                </div>
+                
+                <div class="encouragement">
+                    You're halfway through. Stay focused.
+                </div>
+            </div>
+
+            <!-- Question 12 (later stage example) -->
+            <div class="question-section" id="question-12">
+                <div class="question-text">How would you explain the concept of API to a non-technical person?</div>
+                <div class="question-helper">Choose the option you would say in an interview.</div>
+                
+                <div class="options-container">
+                    <div class="option" onclick="selectOption(this, 12, 'a')">
+                        It's a way for different software to talk to each other
+                    </div>
+                    <div class="option" onclick="selectOption(this, 12, 'b')">
+                        It's like a waiter in a restaurant who takes your order and brings your food
+                    </div>
+                    <div class="option" onclick="selectOption(this, 12, 'c')">
+                        It's a technical interface with endpoints and protocols
+                    </div>
+                    <div class="option" onclick="selectOption(this, 12, 'd')">
+                        I'm not sure how to explain it simply
+                    </div>
+                </div>
+                
+                <div class="encouragement">
+                    Almost done. Just a few more questions.
+                </div>
+            </div>
+
+            <!-- Question 15 (last question example) -->
+            <div class="question-section" id="question-15">
+                <div class="question-text">What do you do when you disagree with a technical decision made by your team?</div>
+                <div class="question-helper">Select the response you would give to an interviewer.</div>
+                
+                <div class="options-container">
+                    <div class="option" onclick="selectOption(this, 15, 'a')">
+                        I voice my concerns with clear reasoning and listen to others
+                    </div>
+                    <div class="option" onclick="selectOption(this, 15, 'b')">
+                        I stay quiet and follow the team's decision
+                    </div>
+                    <div class="option" onclick="selectOption(this, 15, 'c')">
+                        I implement my own approach if I'm confident it's better
+                    </div>
+                    <div class="option" onclick="selectOption(this, 15, 'd')">
+                        I escalate to a manager to make the final call
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn-next" id="next-btn" onclick="nextQuestion()" disabled>Next Question</button>
+            </div>
+        </div>
+
+        <!-- Completion Section -->
+        <div id="completion-section" class="page-section completion-section">
+            <div class="completion-icon">✓</div>
+            <h1>Test Complete</h1>
+            <p class="subtitle">We're analyzing your responses and generating your interview readiness report. This will take a moment.</p>
+            
+            <ul class="completion-list">
+                <li>Your overall readiness score</li>
+                <li>Strengths you can highlight in interviews</li>
+                <li>Specific areas that need improvement</li>
+                <li>What to focus on next</li>
+            </ul>
+            
+            <button class="cta-button" onclick="generateReport()">View My Report</button>
+        </div>
+
+        <!-- Loading Section -->
+        <div id="loading-section" class="page-section loading-section">
+            <div class="spinner"></div>
+            <div class="loading-text">Generating your report...</div>
+            <div class="loading-subtext">This should take 10–15 seconds.</div>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 15;
+        let answers = {};
+
+        function startTest() {
+            document.getElementById('intro-section').style.display = 'none';
+            document.getElementById('test-section').style.display = 'block';
+        }
+
+        function selectOption(element, questionNum, answer) {
+            const options = element.parentElement.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            
+            answers[questionNum] = answer;
+            document.getElementById('next-btn').disabled = false;
+        }
+
+        function nextQuestion() {
+            document.getElementById(`question-${currentQuestion}`).classList.remove('active');
+            
+            currentQuestion++;
+            
+            if (currentQuestion <= totalQuestions) {
+                // Show next question (or simulate if not all are created)
+                const nextQ = document.getElementById(`question-${currentQuestion}`);
+                if (nextQ) {
+                    nextQ.classList.add('active');
+                } else {
+                    // Simulate remaining questions for demo
+                    if (currentQuestion === totalQuestions) {
+                        showCompletion();
+                        return;
+                    }
+                    // Create placeholder for demo
+                    setTimeout(() => nextQuestion(), 500);
+                    return;
+                }
+                
+                const progress = (currentQuestion / totalQuestions) * 100;
+                document.getElementById('progress-fill').style.width = progress + '%';
+                document.getElementById('progress-text').textContent = `Question ${currentQuestion} of ${totalQuestions}`;
+                document.getElementById('next-btn').disabled = true;
+                
+                // Change button text on last question
+                if (currentQuestion === totalQuestions) {
+                    document.getElementById('next-btn').textContent = 'Complete Test';
+                }
+            } else {
+                showCompletion();
+            }
+        }
+
+        function showCompletion() {
+            document.getElementById('test-section').style.display = 'none';
+            document.getElementById('completion-section').classList.add('active');
+        }
+
+        function generateReport() {
+            document.getElementById('completion-section').classList.remove('active');
+            document.getElementById('loading-section').classList.add('active');
+            
+            // Simulate report generation
+            setTimeout(() => {
+                alert('Report generated! (In production, this would redirect to the report page)');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

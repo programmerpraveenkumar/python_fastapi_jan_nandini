@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodingInterview.in - Know Your Interview Readiness Before You Apply</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+        
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: #4a5568;
+            margin-bottom: 35px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        
+        .cta-button:hover {
+            background: #1d4ed8;
+        }
+        
+        .free-label {
+            display: block;
+            margin-top: 12px;
+            font-size: 15px;
+            color: #6b7280;
+        }
+        
+        section {
+            padding: 70px 0;
+        }
+        
+        .section-light {
+            background: #f9fafb;
+        }
+        
+        h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #1a202c;
+        }
+        
+        .section-intro {
+            text-align: center;
+            font-size: 18px;
+            color: #4a5568;
+            max-width: 750px;
+            margin: 0 auto 50px;
+        }
+        
+        .problem-box {
+            background: white;
+            border-left: 4px solid #ef4444;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .problem-box h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #1a202c;
+        }
+        
+        .problem-box p {
+            color: #4a5568;
+            font-size: 16px;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .step {
+            text-align: center;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            line-height: 50px;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .step h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #1a202c;
+        }
+        
+        .step p {
+            color: #4a5568;
+            font-size: 16px;
+        }
+        
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #1a202c;
+            text-align: left;
+        }
+        
+        .benefit-card p {
+            color: #4a5568;
+            font-size: 16px;
+            text-align: left;
+        }
+        
+        .difference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .difference-item {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .difference-item h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+            color: #1a202c;
+            text-align: left;
+        }
+        
+        .difference-item p {
+            color: #4a5568;
+            font-size: 16px;
+            text-align: left;
+        }
+        
+        .social-proof {
+            text-align: center;
+            padding: 50px;
+            background: white;
+            border-radius: 8px;
+            border: 2px dashed #cbd5e0;
+        }
+        
+        .social-proof p {
+            color: #6b7280;
+            font-size: 16px;
+        }
+        
+        .final-cta {
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .final-cta h2 {
+            margin-bottom: 15px;
+        }
+        
+        .final-cta p {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 30px;
+        }
+        
+        footer {
+            background: #1a202c;
+            color: #cbd5e0;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">CodingInterview.in</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Know Your Interview Readiness<br>Before You Apply</h1>
+            <p>Take a 10-minute AI test based on your resume and skills. Get your interview readiness score and a clear report on what to improve.</p>
+            <a href="#" class="cta-button">Start Free Interview Test</a>
+            <span class="free-label">Free test. Unlock full report for detailed analysis.</span>
+        </div>
+    </section>
+
+    <section class="section-light">
+        <div class="container">
+            <h2>Why Most Candidates Fail Interviews</h2>
+            <div class="problem-box">
+                <h3>You don't know what you don't know</h3>
+                <p>Most students think they're ready because they've studied. But interviews test different things—problem-solving speed, clarity under pressure, and depth in specific areas. Without feedback, you keep making the same mistakes.</p>
+            </div>
+            <div class="problem-box">
+                <h3>Generic preparation doesn't match real interviews</h3>
+                <p>You watch tutorials and solve random questions. But your actual interview will focus on what's in your resume and the role you're applying for. Mismatched preparation wastes time and confidence.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Upload Your Resume</h3>
+                    <p>We analyze your skills, projects, and experience to create personalized questions.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Take the 10-Minute Test</h3>
+                    <p>Answer MCQs designed to match real interview patterns for your profile.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Your Readiness Score</h3>
+                    <p>See your weighted score based on what matters most in technical interviews.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Review Your Report</h3>
+                    <p>Understand your strengths and weaknesses with clear, actionable insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-light">
+        <div class="container">
+            <h2>What You Get</h2>
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Honest feedback you can trust</h3>
+                    <p>No vague scores. You'll know exactly where you stand and what needs work before you face a real interviewer.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Confidence in your preparation</h3>
+                    <p>Stop second-guessing yourself. You'll know if you're ready or what specific areas to focus on next.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Time saved on the right things</h3>
+                    <p>Focus your limited time on what actually matters for your interviews, not random topics.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>A clear path to improvement</h3>
+                    <p>Get a report that tells you what to study, what to skip, and how to improve each weak area.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Why CodingInterview.in Is Different</h2>
+            <p class="section-intro">Most practice platforms give you random questions. We do something different.</p>
+            <div class="difference-grid">
+                <div class="difference-item">
+                    <h3>Personalized to your resume</h3>
+                    <p>Questions are based on what you claim to know and what interviewers will actually ask you about.</p>
+                </div>
+                <div class="difference-item">
+                    <h3>Predicts interview readiness</h3>
+                    <p>Our weighted scoring system mirrors how real interviewers evaluate candidates—not just right or wrong answers.</p>
+                </div>
+                <div class="difference-item">
+                    <h3>Built for Indian job seekers</h3>
+                    <p>Focused on the interview patterns, tech stacks, and expectations of companies hiring in India.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-light">
+        <div class="container">
+            <h2>What Students Are Saying</h2>
+            <div class="social-proof">
+                <p>Testimonials and success stories coming soon.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Find Out Where You Stand?</h2>
+            <p>Take the free test now. It only takes 10 minutes.</p>
+            <a href="#" class="cta-button">Start Free Interview Test</a>
+            <span class="free-label">No credit card required. Get started in seconds.</span>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 CodingInterview.in. Built for Indian developers, by developers.</p>
+        </div>
+    </footer>
+</body>
+</html>

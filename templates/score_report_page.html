@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Test Results - CodingInterview.in</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #f9fafb;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+        
+        .success-banner {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .success-icon {
+            width: 60px;
+            height: 60px;
+            background: #10b981;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+        }
+        
+        .success-banner h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+        
+        .success-banner p {
+            font-size: 18px;
+            color: #4a5568;
+        }
+        
+        .score-section {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .score-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 30px;
+        }
+        
+        .score-display {
+            font-size: 80px;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+        
+        .score-display.medium {
+            color: #f59e0b;
+        }
+        
+        .score-display.low {
+            color: #ef4444;
+        }
+        
+        .score-context {
+            font-size: 16px;
+            color: #4a5568;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        .interpretation-section {
+            background: #f0f9ff;
+            border-left: 4px solid #2563eb;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .interpretation-section.medium {
+            background: #fffbeb;
+            border-left-color: #f59e0b;
+        }
+        
+        .interpretation-section.low {
+            background: #fef2f2;
+            border-left-color: #ef4444;
+        }
+        
+        .interpretation-section p {
+            font-size: 16px;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+        
+        .insights-section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .insights-section h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 30px;
+        }
+        
+        .insights-group {
+            margin-bottom: 30px;
+        }
+        
+        .insights-group h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        
+        .insight-list {
+            list-style: none;
+        }
+        
+        .insight-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #4a5568;
+            font-size: 16px;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .insight-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .insight-list.strengths li:before {
+            content: "✓";
+            position: absolute;
+            left: 5px;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .weakness-teaser {
+            background: #fef3c7;
+            border: 1px solid #fbbf24;
+            padding: 20px;
+            border-radius: 6px;
+            font-size: 15px;
+            color: #78350f;
+            margin-top: 20px;
+        }
+        
+        .next-steps-section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .next-steps-section h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+        
+        .next-steps-section > p {
+            font-size: 16px;
+            color: #4a5568;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .report-includes {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .report-includes li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #4a5568;
+            font-size: 16px;
+        }
+        
+        .report-includes li:before {
+            content: "•";
+            position: absolute;
+            left: 10px;
+            color: #2563eb;
+            font-size: 20px;
+        }
+        
+        .trust-section {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .trust-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        
+        .trust-section p {
+            font-size: 15px;
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .cta-section {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .cta-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        
+        .cta-section > p {
+            font-size: 17px;
+            color: #4a5568;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background: #1d4ed8;
+        }
+        
+        .supporting-text {
+            display: block;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #6b7280;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">CodingInterview.in</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Success Confirmation -->
+        <div class="success-banner">
+            <div class="success-icon">✓</div>
+            <h1>Interview Test Completed</h1>
+            <p>Your responses have been evaluated. Here's your interview readiness summary.</p>
+        </div>
+
+        <!-- Score Summary -->
+        <div class="score-section">
+            <h2>Your Interview Readiness Score</h2>
+            <div class="score-display">67%</div>
+            <p class="score-context">This score indicates how prepared you are for technical interviews based on your current knowledge and experience. This is not a pass or fail result—it's an honest assessment of where you stand today.</p>
+        </div>
+
+        <!-- Score Interpretation -->
+        <div class="interpretation-section medium">
+            <p>You have basic knowledge but need focused preparation in several areas. With targeted practice on your weak points, you can significantly improve your interview performance in the next few weeks.</p>
+        </div>
+
+        <!-- High-Level Insights -->
+        <div class="insights-section">
+            <h2>What Your Test Revealed</h2>
+            
+            <div class="insights-group">
+                <h3>Areas where you performed well:</h3>
+                <ul class="insight-list strengths">
+                    <li>Strong understanding of object-oriented programming concepts</li>
+                    <li>Clear communication of technical ideas</li>
+                </ul>
+            </div>
+
+            <div class="weakness-teaser">
+                Your detailed report identifies specific topics that need improvement and explains why they matter in real interviews.
+            </div>
+        </div>
+
+        <!-- What Happens Next -->
+        <div class="next-steps-section">
+            <h2>Your Detailed Report Is Ready</h2>
+            <p>We've analyzed your responses against real interview patterns and created a complete breakdown for you.</p>
+            
+            <p style="font-weight: 600; color: #1a202c; margin-top: 20px;">Your full report includes:</p>
+            <ul class="report-includes">
+                <li>Question-by-question analysis</li>
+                <li>Specific strengths you should highlight in interviews</li>
+                <li>Exact topics and concepts you need to improve</li>
+                <li>Clear action steps for each weak area</li>
+                <li>How your knowledge matches what interviewers look for</li>
+            </ul>
+        </div>
+
+        <!-- Trust-Building Explanation -->
+        <div class="trust-section">
+            <h2>How This Score Was Calculated</h2>
+            <p>Your score is based on weighted evaluation, not just correct answers.</p>
+            <p>Questions related to skills on your resume were given higher importance. Questions about core interview topics were weighted based on how often they appear in real technical interviews.</p>
+            <p>This approach gives you a realistic picture of how an interviewer would assess your readiness, not just how many questions you got right.</p>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h2>See Your Complete Analysis</h2>
+            <p>Your full report gives you everything you need to prepare effectively and avoid wasting time on the wrong topics.</p>
+            <a href="#" class="cta-button">View Full Interview Report</a>
+            <span class="supporting-text">Your report is ready to view now. It stays available in your account.</span>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>This evaluation is based on interview patterns from companies hiring in India. The score reflects real expectations, not theoretical perfection.</p>
+        </div>
+    </footer>
+
+    <script>
+        // You can dynamically adjust score display color based on actual score
+        function setScoreColor(score) {
+            const scoreDisplay = document.querySelector('.score-display');
+            const interpretation = document.querySelector('.interpretation-section');
+            
+            if (score >= 70) {
+                scoreDisplay.classList.remove('medium', 'low');
+                interpretation.classList.remove('medium', 'low');
+                interpretation.style.background = '#f0f9ff';
+                interpretation.style.borderLeftColor = '#2563eb';
+            } else if (score >= 50) {
+                scoreDisplay.classList.add('medium');
+                interpretation.classList.add('medium');
+            } else {
+                scoreDisplay.classList.add('low');
+                interpretation.classList.add('low');
+            }
+        }
+
+        // Example: Set score color based on actual score
+        // setScoreColor(67);
+
+        // Function to update interpretation text based on score
+        function updateInterpretation(score) {
+            const interpretation = document.querySelector('.interpretation-section p');
+            
+            if (score >= 70) {
+                interpretation.textContent = "You have a strong foundation for technical interviews. You understand key concepts and can likely handle most standard interview questions. Focus on refining your weak areas to increase your success rate.";
+            } else if (score >= 50) {
+                interpretation.textContent = "You have basic knowledge but need focused preparation in several areas. With targeted practice on your weak points, you can significantly improve your interview performance in the next few weeks.";
+            } else {
+                interpretation.textContent = "You need substantial preparation before appearing for interviews. This is common for students just starting out. The good news is that you now know exactly what to work on, which saves you time.";
+            }
+        }
+
+        // Example usage:
+        // updateInterpretation(67);
+    </script>
+</body>
+</html>
